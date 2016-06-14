@@ -1,0 +1,57 @@
+﻿<html>
+<head>
+    <title>Using Sessions in Express apps</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function () {
+        var username, password;
+        $("#submit").click(function () {
+            username = $("#username").val();
+            password = $("#password").val();
+            window.location.href = "/admin";
+            /*
+            * Perform some validation here.
+            
+          
+            $.post("http://localhost:3000/login", { username: username, password: password }, function (data) {
+                if (data === 'done') {
+                   
+                }
+            });*/
+        });
+    });
+    </script>
+</head>
+<body>
+    <div style="width: 600px; height: 440px;margin:5%; background-color: #AAAADF; color: black; padding-top: 1em; float: left">
+
+        <div style="margin:3%">
+            <Table type="Table1" height="400">
+                <tr Height="36px">
+                    <td width="140px">User Name: </td>
+                    <td width="460px">
+                        <input type="text"  size="30" placeholder="Enter your user name" id="username" >
+
+                    </td>
+                </tr>
+                <tr Height="36px">
+                    <td width="140px">Password: </td>
+                    <td width="460px">
+                        <input type="password" size="30" placeholder="Enter your password" id="password">
+                    </td>
+
+                </tr>
+                <tr Height="36px">
+                    <td width="140px"></td>
+                    <td width="460px">
+                        <input type="button" value="Login" id="submit"> </td>
+
+                </tr>
+                </Table>
+
+
+
+</div>
+        </div>
+</body>
+</html>

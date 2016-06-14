@@ -1,0 +1,93 @@
+﻿<html>
+
+<head>
+    <title>Using Sessions in Express apps</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function () {
+        var firstName, lastName, email, comments;
+        $.get("http://localhost:3000/login", function (data) {
+            firstName = data;
+        });
+
+        $("#submit1").click(function () {
+            firstName = $("#firstName").val();
+            lastName = $("#lastName").val();
+            email = $("#email").val();
+            comments = $("#comments").val();           
+            /*
+            * Perform some valtypeation here.
+            */
+           
+           /* $.post("http://localhost:3000/login", { username: username, password: password }, function (data) {
+                if (data === 'done') {
+                    window.location.href = "/admin";
+                }
+            });
+            */
+            $.post("http://localhost:3000/feedbackLogin", { firstName: firstName, lastName: lastName, email: email, comments: comments }, function (data) {
+                if (data == 'Thank You for your feedback') {
+                    window.location.href = "/feedback";
+                }
+           });
+        });
+    });
+
+    
+    </script>
+    
+</head>
+<body>
+    <h1 >Feedback Form</h1><br />
+  
+<!-------------------------------------------------------------------------------------------------------------------------------->
+
+    <div style="width: 600px; height: 540px; background-color: #AAAADF; color: black; padding-top: 1em; float: left">
+
+        <Table type="Table1" height="400">
+            <tr Height="36px">
+                <td Wtypeth="140px">First Name: </td>
+                <td Wtypeth="460px">
+                    <input type="text" Wtypeth="200">
+                </td>
+            </tr>
+            <tr Height="36px">
+                <td Wtypeth="140px">Last Name: </td>
+                <td Wtypeth="460px"><input type="text" Wtypeth="200px"></td>
+
+            </tr>
+            <tr Height="36px">
+                <td Wtypeth="140px">Email</td>
+                <td Wtypeth="460px">
+                        <input type="text" value="" Wtypeth="200px">
+                </td>
+
+            </tr>
+            <tr Height="36px">
+                <td Wtypeth="140px">Comments</td>
+                <td Wtypeth="460px"><input type="text" Wtypeth="200px"></td>
+               
+            </tr>
+           
+            <tr Height="36px">
+                <td Wtypeth="140px">Gender</td>
+                <td Wtypeth="460px"><input type="radio" name="sex" value="male"></td>
+                <td Wtypeth="460px"><input type="radio" name="sex" value="female"></td>
+            </tr>
+            <tr Height="36px">
+                <td Wtypeth="140px">Vehical</td>
+                <td Wtypeth="460px"><input type="checkbox" name="vehicle" value="Bike">>I have a bike</td>
+                <td Wtypeth="460px"><input type="checkbox" name="vehicle" value="Car">I have a car</td>
+            </tr>
+
+            
+            
+
+        </Table>
+        <div style="width: 580px; height: 33px; background-color: ActiveBorder; text-align: center; vertical-align: bottom">
+
+            <input id="submit1" type="button" value="submit"  Width="80" />
+</div>
+        </div>
+</body>
+</html>
